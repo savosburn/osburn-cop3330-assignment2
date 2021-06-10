@@ -14,14 +14,16 @@ public class AnagramDetector {
     }
 
     public boolean isAnagram(boolean sameLength, String str1, String str2) {
+        String string1 = str1.toLowerCase();
+        String string2 = str2.toLowerCase();
 
         if (sameLength) {
             if (str1.equals(str2)) {
                 return true;
             }
 
-            char[] strOne = str1.toCharArray();
-            char[] strTwo = str2.toCharArray();
+            char[] strOne = string1.toCharArray();
+            char[] strTwo = string2.toCharArray();
 
             Arrays.sort(strOne);
             Arrays.sort(strTwo);

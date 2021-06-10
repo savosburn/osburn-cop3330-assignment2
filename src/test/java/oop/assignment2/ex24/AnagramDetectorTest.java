@@ -38,10 +38,28 @@ class AnagramDetectorTest {
     }
 
     @Test
+    public void is_anagram_same_word_capitalization() {
+        AnagramDetector detector = new AnagramDetector();
+
+        boolean actual = detector.isAnagram(true, "StAr", "sTar");
+
+        assertTrue(actual);
+    }
+
+    @Test
     public void is_anagram_different_word_same_length() {
         AnagramDetector detector = new AnagramDetector();
 
         boolean actual = detector.isAnagram(true, "star", "tars");
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void is_anagram_different_word_same_length_capitalization() {
+        AnagramDetector detector = new AnagramDetector();
+
+        boolean actual = detector.isAnagram(true, "staR", "TaRs");
 
         assertTrue(actual);
     }
@@ -56,10 +74,28 @@ class AnagramDetectorTest {
     }
 
     @Test
+    public void not_anagram_different_word_different_length_capitalization() {
+        AnagramDetector detector = new AnagramDetector();
+
+        boolean actual = detector.isAnagram(false, "sTar", "tWIrl");
+
+        assertFalse(actual);
+    }
+
+    @Test
     public void not_anagram_different_word_same_length() {
         AnagramDetector detector = new AnagramDetector();
 
         boolean actual = detector.isAnagram(true, "star", "fizz");
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void not_anagram_different_word_same_length_capitalization() {
+        AnagramDetector detector = new AnagramDetector();
+
+        boolean actual = detector.isAnagram(true, "sTAr", "fiZz");
 
         assertFalse(actual);
     }

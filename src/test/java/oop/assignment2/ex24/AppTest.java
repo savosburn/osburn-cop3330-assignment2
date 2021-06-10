@@ -22,11 +22,32 @@ class AppTest {
     }
 
     @Test
+    public void generate_output_not_anagrams_capitalization() {
+        App myApp = new App();
+
+        String expected = "\"sTar\" and \"tWIrl\" are not anagrams.";
+        String actual = myApp.generateOutput(false, "sTar", "tWIrl");
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
     public void generate_output_anagrams() {
         App myApp = new App();
 
         String expected = "\"star\" and \"tars\" are anagrams.";
         String actual = myApp.generateOutput(true, "star", "tars");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void generate_output_anagrams_capitalization() {
+        App myApp = new App();
+
+        String expected = "\"sTaR\" and \"TaRs\" are anagrams.";
+        String actual = myApp.generateOutput(true, "sTaR", "TaRs");
 
         assertEquals(expected, actual);
     }

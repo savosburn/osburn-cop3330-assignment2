@@ -1,0 +1,14 @@
+@startuml
+
+
+class Application {
+    + readInput(); // loop 5 times
+    + add inputs();
+    + print total();
+
+}
+
+
+
+
+@enduml

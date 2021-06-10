@@ -46,8 +46,34 @@ Then create a validateInput function that takes in all of the input data and inv
 Use a single output statement to display the outputs
  */
 
+import java.util.Scanner;
+
 public class App {
+    private static final Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
         App myApp = new App();
+        Validation validator = new Validation();
+
+        // scan
+        String firstName = myApp.readString("Enter the first name: ");
+        String lastName = myApp.readString("Enter the last name: ");
+        String zipCode = myApp.readString("Enter the ZIP code: ");
+        String employeeID = myApp.readString("Enter the employeeID: ");
+
+        // validate
+        String output = validator.ValidateInput(firstName, lastName, zipCode, employeeID);
+        myApp.print(output);
     }
+
+    public String readString(String prompt) {
+        System.out.print(prompt);
+        return in.nextLine();
+    }
+
+    public void print(String output) {
+        System.out.println(output);
+    }
+
+
 }

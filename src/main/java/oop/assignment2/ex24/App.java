@@ -1,4 +1,4 @@
 package oop.assignment2.ex24;
 
-public class Solution24 {
+public class App {
 }

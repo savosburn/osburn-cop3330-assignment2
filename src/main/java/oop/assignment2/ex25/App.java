@@ -19,7 +19,7 @@ Example Output
 The password '12345' is a very weak password.
 The password 'abcdef' is a weak password.
 The password 'abc123xyz' is a strong password.
-The password '1337h@xor!' is a very strong password.
+The password '1337h@xor!' is a very strong password
 
 Constraints
 Create a passwordValidator function that takes in the password as its argument and

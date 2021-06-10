@@ -23,9 +23,31 @@ and returns true or false. Invoke this function from your main program.
 Check that both words are the same length.
  */
 
+import java.util.Scanner;
+
 public class App {
+    private static final Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
         App myApp = new App();
+        AnagramDetector detector = new AnagramDetector();
 
+        String stringOne = myApp.readString("Enter the first string: ");
+        String stringTwo = myApp.readString("Enter the second string: ");
+
+        // read in string 1
+        // read in string 2
+        // check that both words are the same length
+        boolean sameLength = detector.isSameLength(stringOne, stringTwo);
+        System.out.print(sameLength);
+
+        // create output string
+        // generate output
     }
+
+    public String readString(String prompt) {
+        System.out.print(prompt);
+        return in.nextLine();
+    }
+
 }

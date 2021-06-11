@@ -3,6 +3,8 @@
  *  Copyright 2021 Savannah Osburn
  */
 
+// FIGURE OUT HOW TO DO TEST CASES
+
 package oop.assignment2.ex32;
 
 /*

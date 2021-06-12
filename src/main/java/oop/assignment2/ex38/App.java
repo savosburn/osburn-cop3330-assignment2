@@ -22,18 +22,33 @@ Write your own algorithm—don’t rely on the language’s built-in filter or s
 Use a function called filterEvenNumbers to encapsulate the logic for this. The function takes in the old array and returns the new array.
  */
 
+import java.util.Scanner;
+
 public class App {
+    private static final Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
+        App myApp = new App();
+        FilterString filter = new FilterString();
 
-        //App myApp = new App();
+        String list = myApp.readInput();
+        char[] stringArray = filter.convertInputToArray(list);
 
-
+        String[] newArray = filter.filterEvenNumbers(stringArray);
+        myApp.printArray(newArray);
     }
-/*
+
     public String readInput() {
 
         System.out.print("Enter a list of numbers, separated by spaces: ");
 
         return in.nextLine();
-    }*/
+    }
+
+    public void printArray(String[] newArr) {
+        System.out.print("The even numbers are ");
+        for (String c : newArr) {
+            System.out.print(c);
+        }
+    }
 }

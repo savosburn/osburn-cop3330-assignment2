@@ -5,6 +5,7 @@
 
 package oop.assignment2.ex37;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -20,31 +21,30 @@ public class PasswordGenerator {
 
 
         ArrayList<Integer> ints = generatePassword.randInts(numNums);
-        password = ints;
-        /*
-        ArrayList<Integer> specialChars = (generatePassword.randSpecialChars(password, specialChar));
+
+        ArrayList<Integer> specialChars = generatePassword.randSpecialChars(specialChar);
 
         int total = numNums + specialChar;
-        ArrayList<Integer> chars = generatePassword.randChar(password, total, minLength);
+        ArrayList<Integer> chars = generatePassword.randChar(total, minLength);
 
         password = ints;
         password.addAll(specialChars);
-        password.addAll(chars);*/
+        password.addAll(chars);
 
         return password;
 
     }
 
-    /*
-    public ArrayList<Integer> randSpecialChars(ArrayList<Integer> listSpecialChars, int specialChar) {
 
+    public ArrayList<Integer> randSpecialChars(int specialChar) {
+        ArrayList<Integer> listSpecialChars = new ArrayList<>();
         for (int i = 0; i < specialChar; i++) {
             int randAscii = 1 + randomNumbers.nextInt(32);
-            listSpecialChars.add(generatePassword.determineSpecialChar(randAscii));
+            listSpecialChars.add(determineSpecialChar(randAscii));
         }
 
         return listSpecialChars;
-    }*/
+    }
 
     public ArrayList<Integer> randInts( int numNums) {
         ArrayList<Integer> listInts = new ArrayList<>();
@@ -55,12 +55,13 @@ public class PasswordGenerator {
 
         return listInts;
     }
-    /*
-    public ArrayList<Integer> randChar(ArrayList<Integer> listChars, int total, int minLength) {
 
-        while (total <= minLength){
+    public ArrayList<Integer> randChar(int total, int minLength) {
+        ArrayList<Integer> listChars = new ArrayList<>();
+
+        while (total < minLength){
             int randChar = 1 + randomNumbers.nextInt(52);
-            listChars.add(generatePassword.determineChar(randChar));
+            listChars.add(determineChar(randChar));
             total++;
         }
 
@@ -95,7 +96,7 @@ public class PasswordGenerator {
         else {
             return randChar + 70;
         }
-    }*/
+    }
 
 }
 

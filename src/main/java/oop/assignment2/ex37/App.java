@@ -43,6 +43,7 @@ public class App {
         int numNums = myApp.readInt("How many numbers? ");
 
         StringBuilder output = randomnizer.randomnize(numNums, specialChar, minLength);
+        myApp.displayOutput(output);
 
 
     }

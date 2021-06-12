@@ -24,9 +24,18 @@ public class PasswordRandomnizer {
 
             // Choose random number
             int randVal = randomNumbers.nextInt(password.size());
+            String val = "";
 
+            if (password.get(randVal) >= 0 && password.get(randVal) <= 9) {
+                val = String.valueOf(password.get(randVal));
+
+            }
+            else {
+                val = Character.toString(password.get(randVal));
+            }
             // Convert to string
-            String val = Character.toString(password.get(randVal));
+
+
 
                 retString.append(val);
 

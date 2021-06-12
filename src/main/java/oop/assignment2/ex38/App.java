@@ -24,14 +24,16 @@ Use a function called filterEvenNumbers to encapsulate the logic for this. The f
 
 public class App {
     public static void main(String[] args) {
-        App myApp = new App();
 
-        String char = myApp.readInput();
+        //App myApp = new App();
+
+
     }
-
+/*
     public String readInput() {
+
         System.out.print("Enter a list of numbers, separated by spaces: ");
 
         return in.nextLine();
-    }
+    }*/
 }

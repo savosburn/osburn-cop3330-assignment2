@@ -47,17 +47,15 @@ public class App {
         CreateEmployeeList list = new CreateEmployeeList();
         SortList sort = new SortList();
         Printer print = new Printer();
-        ArrayList<HashMap<String, String>> unsortedList = new ArrayList<>();
+
+        ArrayList<HashMap<String, String>> unsortedList;
 
         unsortedList = list.unsortedMap();
 
-        String[] sortedList = sort.sort(unsortedList); // good
+        String[] sortedList = sort.sort(unsortedList);
 
         String output = print.print(sortedList, unsortedList);
-
         myApp.display(output);
-
-
     }
 
     public void display(String output) {

@@ -3,7 +3,6 @@
  *  Copyright 2021 Savannah Osburn
  */
 
-
 package oop.assignment2.ex40;
 
 import java.util.ArrayList;

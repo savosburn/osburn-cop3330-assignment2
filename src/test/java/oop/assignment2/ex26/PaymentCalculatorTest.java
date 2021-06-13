@@ -10,7 +10,7 @@ class PaymentCalculatorTest {
     void calculateMonthsUntilPaidOff() {
         PaymentCalculator paymentCalc = new PaymentCalculator();
 
-        double expected = 100.0;
+        double expected = 70;
         double actual = paymentCalc.calculateMonthsUntilPaidOff(.12, 5000, 100);
 
         assertEquals(expected, actual, 0.000000001);

@@ -1,74 +1,46 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Savannah Osburn
+ */
+
 package oop.assignment2.ex38;
 
-import java.sql.Array;
+import java.util.ArrayList;
 
 public class FilterString {
 
-    public String[] filterEvenNumbers(char[] array) {
-        String[] newArray = new String[newArraySize(array)];
-        String indexZero = newArray[0];
+    public ArrayList<Integer> evenNumbers(ArrayList<Integer> nums) {
+        ArrayList<Integer> evens = new ArrayList<>();
 
-        int i, j;
-        for (i = 0, j = 0; i < array.length; i++) {
-
-            String temp = Character.toString(array[i]);
-             //System.out.print(temp);
-
-
-
-            if (Character.isWhitespace(array[i])) {
-
-                if (indexZero == null) {
-                    continue;
-                }
-
-
-                newArray[j] = " ";
-                j++;
-                continue;
-            }
-
-
-            int tempInt = Integer.parseInt(temp);
-
-            //  System.out.print(tempInt);
-
-            if (tempInt % 2 == 0) {
-                indexZero = "not null";
-                newArray[j] = temp;
-                j++;
-            }
-
-
-        }
-
-        return newArray;
-    }
-
-    public int newArraySize(char[] array) {
-        int length = array.length;
-
-        for (char c : array) {
-            String temp = Character.toString(c);
-
-            if (temp.equals(" ")) {
-                continue;
-            }
-
-            int intTemp = Character.getNumericValue(c);
-
-            if (!(intTemp % 2 == 0)) {
-                length--;
+        for (Integer num : nums) {
+            if (num % 2 == 0) {
+                evens.add(num);
             }
         }
-        return length - 1;
+
+        return evens;
     }
 
-    public char[] convertInputToArray(String input) {
-        char[] inputArray = new char[input.length()];
+    public ArrayList<Integer> allNumbers(String input) {
+        ArrayList<Integer> allNumbers = new ArrayList<>();
+
+        ArrayList<String> nums = convertInputToArray(input);
+
+        for (String num : nums) {
+
+            allNumbers.add(Integer.parseInt(num));
+        }
+
+        return allNumbers;
+    }
+
+    public ArrayList<String> convertInputToArray(String input) {
+        ArrayList<String> inputArray = new ArrayList<>();
 
         for (int i = 0; i < input.length(); i++) {
-            inputArray[i] = input.charAt(i);
+            if (!(Character.toString(input.charAt(i)).equals(" "))) {
+                inputArray.add(Character.toString(input.charAt(i)));
+            }
         }
 
         return inputArray;

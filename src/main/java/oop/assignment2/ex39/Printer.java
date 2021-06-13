@@ -1,3 +1,9 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Savannah Osburn
+ */
+
+
 package oop.assignment2.ex39;
 
 import java.util.ArrayList;
@@ -9,85 +15,68 @@ public class Printer {
         Printer printing = new Printer();
 
         String headings = printing.setUpTable();
-        System.out.print(headings);
-
-        String[][] input = printing.fillTable(sortedList, employees);
-
-
-        String output = printing.createOutput(input);
+        String output = printing.createTable(sortedList, employees);
 
         return headings + output;
     }
 
     public String setUpTable() {
-        String str1 = "Name\t\t\t\t| Position\t\t\t|Separation Date\n";
-        String str2 = "--------------------|-------------------|----------------\n";
+        String str1 = "Name\t\t\t\t| Position\t\t\t  |Separation Date\n";
+        String str2 = "--------------------|---------------------|----------------\n";
 
         return str1 + str2;
     }
 
-    public String[][] fillTable(String[] sortedList, ArrayList<HashMap<String, String>> employees) {
-        HashMap<String, String> employee;
-        String[][] values = new String[6][4];
+    public String createTable(String[] alphabeticNames, ArrayList<HashMap<String, String>> list) {
+        String output = null;
 
         for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 4; j++) {
-                employee = employees.get(j);
+            String str1 = null;
 
-                if (employee.containsKey(sortedList[i])) {
-                    //System.out.print(employee.values());
-                    values[i] = employee.values().toArray(new String[i]);
+            for (int j = 0; j < 6; j++) {
+                HashMap<String, String> map = list.get(j);
+                if (list.get(j).get("lastNames").equals(alphabeticNames[i])) {
+
+                    str1 = checkNull(list, j, "firstNames") + " " + checkNull(list, j, "lastNames") +
+                            spaces(list, j, "lastNames") + checkNull(list, j, "positions") + spaces(list, j, "positions") + checkNull(list, j, "sepDates");
                 }
             }
+
+            if (output == null) {
+                output = str1 + "\n";
+            } else
+                output += str1 + "\n";
         }
-        return values;
+        return output;
     }
 
-    public String createOutput(String[][] employees) {
-        String newString = null;
+    public String checkNull(ArrayList<HashMap<String, String>> list, int k, String key) {
+        if (list.get(k).get(key) == null) {
+            return " ";
+        } else {
 
-        //System.out.print("employee = " + employees[0][0]);
+            return list.get(k).get(key);
+        }
+    }
 
-        for (int i = 0; i < 6; i++) {
-            //System.out.print("value of i =  " + i);
-            String curString = null;
-            int count = 0;
-            for (int j = 0; j < 4; j++) {
-                //System.out.print("value of j = " + j);
+    public String spaces(ArrayList<HashMap<String, String>> list, int k, String key) {
+        int count = 0;
+        if (key.equals("lastNames")) {
+            count = list.get(k).get("firstNames").length() + list.get(k).get(key).length() + 1;
+        } else
+            count = list.get(k).get(key).length();
+        String string = " ";
 
-                if (j > 1) {
-                    curString += "| ";
-                    count += curString.length();
-                }
 
-                if (curString == null) {
-                    curString = employees[i][j] + " ";
-                    count += curString.length();
-                }
-
-                curString += employees[i][j] + " ";
-                count += curString.length();
-
-                //System.out.print("curstring = " + curString);
-
-            }
-
-            while(count < 20) {
-                curString += " ";
-                count++;
-            }
-
-            curString += "\n";
-
-            if (newString == null) {
-                newString = curString;
-            }
-
-            else {
-                newString += curString;
-            }
+        while (count < 19) {
+            string += " ";
+            count++;
         }
 
-        return newString;
+        if (!key.equals("sepDates")) {
+            string += "| ";
+        }
+
+        return string;
     }
 }

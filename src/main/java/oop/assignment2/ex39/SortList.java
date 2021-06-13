@@ -1,3 +1,9 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Savannah Osburn
+ */
+
+
 package oop.assignment2.ex39;
 
 import java.util.ArrayList;
@@ -10,13 +16,10 @@ public class SortList {
     public String[] sort(ArrayList<HashMap<String, String>> list) {
         SortList sort = new SortList();
 
-        String[] sortKeys = getKeys(list);
+        String[] sortKeys = sort.getKeys(list);
 
-        String[] alphabeticLNames = lastNamesAlphabetic(sortKeys, list);
+        String[] alphabeticLNames = sort.lastNamesAlphabetic(sortKeys, list);
 
-        // testing
-        for (int i = 0;i < 6; i++)
-            System.out.print(" " + alphabeticLNames[i] + " ");
 
         return alphabeticLNames;
     }

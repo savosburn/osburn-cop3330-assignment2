@@ -12,7 +12,6 @@ class PrinterTest {
     @Test
     void print() {
         Printer print = new Printer();
-        App myApp = new App();
         CreateEmployeeList list = new CreateEmployeeList();
         SortList sort = new SortList();
 

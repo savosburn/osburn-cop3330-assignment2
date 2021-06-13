@@ -1,14 +1,14 @@
 @startuml
-
+Application o-> Adder
 
 class Application {
-    + readInput(); // loop 5 times
-    + add inputs();
-    + print total();
-
+    + createOutput();
+    + printOutput();
 }
 
-
-
-
+class Adder {
+    + readNum // loop 5 times
+    + userInput // assign inputs to array
+    + addNumbers
+}
 @enduml

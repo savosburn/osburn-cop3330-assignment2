@@ -29,7 +29,8 @@ public class CreateRecords {
     }
 
 
-    public HashMap<String, String> addMap(int k, String[] fNames, String[] lNames, String[] positions, String[] sepDates) {
+    public HashMap<String, String> addMap(int k, String[] fNames, String[] lNames, String[] positions, String[]
+            sepDates) {
         HashMap<String, String> employee = new HashMap<>();
 
         employee.put("firstNames", fNames[k]);

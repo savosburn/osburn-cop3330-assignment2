@@ -28,9 +28,12 @@ public class OutputGenerator {
 
         for (int i = 0; i < names.length; i++) {
             if (employeeRecords.get(i).get("firstNames").equals(names[i])) {
-                String tempString = checkNull(employeeRecords, i, "firstNames") + " " + checkNull(employeeRecords, i, "lastNames")
-                        + spaces(employeeRecords, i, "lastNames") + "| " + checkNull(employeeRecords, i, "positions") +
-                        spaces(employeeRecords, i, "positions") + "| " + spaces(employeeRecords, i, "lastNames");
+                String tempString = checkNull(employeeRecords, i, "firstNames") + " " +
+                        checkNull(employeeRecords, i, "lastNames")
+                        + spaces(employeeRecords, i, "lastNames") + "| " +
+                        checkNull(employeeRecords, i, "positions") +
+                        spaces(employeeRecords, i, "positions") + "| "
+                        + spaces(employeeRecords, i, "lastNames");
 
                 if (output == null) {
                     output = tempString + "\n";

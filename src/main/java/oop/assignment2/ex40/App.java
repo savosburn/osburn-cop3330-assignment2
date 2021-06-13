@@ -39,22 +39,20 @@ import java.util.HashMap;
 
 public class App {
     public static void main(String[] args) {
-
         App myApp = new App();
         CreateRecords records = new CreateRecords();
         RecordSearcher search  =new RecordSearcher();
         OutputGenerator generator = new OutputGenerator();
 
-        ArrayList<HashMap<String, String>> employees = new ArrayList<>();
+        ArrayList<HashMap<String, String>> employees;
 
         employees = records.employeeRecords();
 
-        ArrayList<HashMap<String, String>> filtered = new ArrayList<>();
+        ArrayList<HashMap<String, String>> filtered;
         filtered = search.searchRecords(employees);
 
         String output = generator.generateOutput(filtered);
         myApp.output(output);
-
     }
 
     public void output(String output) {

@@ -35,10 +35,10 @@ public class CreateEmployeeList {
    public HashMap<String, String> addMap(int k, String[] fNames, String[] lNames, String[] positions, String[] sepDates) {
         HashMap<String, String> employee = new HashMap<>();
 
-            employee.put(lNames[k], fNames[k]);
-            employee.put(lNames[k], lNames[k]);
-            employee.put(lNames[k], positions[k]);
-            employee.put(lNames[k], sepDates[k]);
+            employee.put("firstNames", fNames[k]);
+            employee.put("lastNames", lNames[k]);
+            employee.put("positions", positions[k]);
+            employee.put("sepDates", sepDates[k]);
 
         return employee;
    }

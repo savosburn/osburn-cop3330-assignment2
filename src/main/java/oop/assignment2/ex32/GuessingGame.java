@@ -14,6 +14,7 @@ public class GuessingGame {
 
     public String game() {
         GuessingGame game = new GuessingGame();
+
         int difficulty = game.difficulty();
         int rand = game.randomNum(difficulty);
         int numGuesses = game.userGuesses(rand);

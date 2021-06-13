@@ -53,15 +53,13 @@ During the game, count non-numeric entries as wrong guesses.
 import java.util.Scanner;
 
 public class App {
-    private static final Scanner in = new Scanner(System.in);
-
     public static void main(String[] args) {
         App myApp = new App();
         GuessingGame game = new GuessingGame();
 
         System.out.print("Let's play Guess the Number!\n\n");
-        String playAgain = "y";
 
+        String playAgain = "y";
         while (playAgain.equals("y")) {
 
             String output = game.game();

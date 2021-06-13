@@ -11,46 +11,30 @@ import java.util.regex.Pattern;
 public class Validation {
 
     public String ValidateInput(String firstName, String lastName, String zipCode, String empID) {
-
-
         Validation validator = new Validation();
 
-        String str1 = validator.invalidFirstName(firstName);
-        String str2 = validator.invalidLastName(lastName);
+        String str1 = validator.invalidName(firstName, "first");
+        String str2 = validator.invalidName(lastName, "last");
         String str3 = validator.invalidZip(zipCode);
         String str4 = validator.invalidId(empID);
 
         return validator.concatenation(str1, str2, str3, str4);
     }
 
-    public String invalidFirstName(String firstName) {
+    public String invalidName(String firstName, String nameType) {
         String str1 = null;
 
         if (firstName.length() < 2) {
-            str1 = "The first name must be at least 2 characters long.\n";
+            str1 = String.format("The %s name must be at least 2 characters long.\n", nameType);
 
             if (firstName.isEmpty())
-                str1 += "The first name must be filled in.\n";
-        }
-
-        return str1;
-    }
-
-    public  String invalidLastName(String lastName) {
-        String str1 = null;
-
-        if (lastName.length() < 2) {
-            str1 = "The last name must be at least 2 characters long.\n";
-
-            if (lastName.isEmpty())
-                str1 += "The last name must be filled in.\n";
+                str1 += String.format("The %s name must be filled in.\n", nameType);
         }
 
         return str1;
     }
 
     public String invalidZip(String zipCode) {
-
         int numNum = 0;
         String str1 = null;
 
@@ -63,7 +47,7 @@ public class Validation {
         if (numNum < 5) {
             str1 =  "The zipcode must be a 5 digit number.\n";
 
-            if (numNum == 0 && zipCode.length() != 5) {
+            if (numNum == 0 && zipCode.length() == 0) {
                 str1 = str1 + "The zipcode must be filled in.\n";
             }
         }
@@ -74,8 +58,8 @@ public class Validation {
     public String invalidId(String empID) {
         String str1 = null;
 
-        String re = "\\D\\D-\\d\\d\\d\\d";
-        Pattern pt = Pattern.compile(re);
+        String regEx = "\\D\\D-\\d\\d\\d\\d";
+        Pattern pt = Pattern.compile(regEx);
         Matcher mt = pt.matcher(empID);
 
         boolean result = mt.matches();

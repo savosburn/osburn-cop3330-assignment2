@@ -15,7 +15,7 @@ class ValidationTest {
     void invalidFirstNameFunction_valid_name() {
         Validation validator = new Validation();
 
-        String actualOutput = validator.invalidFirstName("James");
+        String actualOutput = validator.invalidName("James", "first");
 
         assertNull(actualOutput);
     }
@@ -28,7 +28,7 @@ class ValidationTest {
                 The first name must be at least 2 characters long.
                 The first name must be filled in.
                 """;
-        String actualOutput = validator.invalidFirstName("");
+        String actualOutput = validator.invalidName("", "first");
 
         assertEquals(expectedOutput, actualOutput);
     }
@@ -38,7 +38,7 @@ class ValidationTest {
         Validation validator = new Validation();
 
         String expectedOutput = "The first name must be at least 2 characters long.\n";
-        String actualOutput = validator.invalidFirstName("J");
+        String actualOutput = validator.invalidName("J", "first");
 
         assertEquals(expectedOutput, actualOutput);
     }
@@ -47,7 +47,7 @@ class ValidationTest {
     void invalidLastNameFunction_valid_name() {
         Validation validator = new Validation();
 
-        String actual = validator.invalidLastName("Johnson");
+        String actual = validator.invalidName("Johnson", "last");
 
         assertNull(actual);
     }
@@ -60,7 +60,7 @@ class ValidationTest {
                 The last name must be at least 2 characters long.
                 The last name must be filled in.
                 """;
-        String actualOutput = validator.invalidLastName("");
+        String actualOutput = validator.invalidName("", "last");
 
         assertEquals(expectedOutput, actualOutput);
     }
@@ -70,7 +70,7 @@ class ValidationTest {
         Validation validator = new Validation();
 
         String expectedOutput = "The last name must be at least 2 characters long.\n";
-        String actualOutput = validator.invalidLastName("J");
+        String actualOutput = validator.invalidName("J", "last");
 
         assertEquals(expectedOutput, actualOutput);
     }
@@ -91,6 +91,17 @@ class ValidationTest {
         String expected = "The zipcode must be a 5 digit number.\n";
 
         String actual = validator.invalidZip("abcde");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void invalidZipFunction_invalid_letters_and_too_short() {
+        Validation validator = new Validation();
+
+        String expected = "The zipcode must be a 5 digit number.\n";
+
+        String actual = validator.invalidZip("abc");
 
         assertEquals(expected, actual);
     }
@@ -119,7 +130,6 @@ class ValidationTest {
 
         assertEquals(expected, actual);
     }
-
 
     @Test
     void invalidIdFunction_valid() {

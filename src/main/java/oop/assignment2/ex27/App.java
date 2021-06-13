@@ -55,13 +55,11 @@ public class App {
         App myApp = new App();
         Validation validator = new Validation();
 
-        // scan
         String firstName = myApp.readString("Enter the first name: ");
         String lastName = myApp.readString("Enter the last name: ");
         String zipCode = myApp.readString("Enter the ZIP code: ");
         String employeeID = myApp.readString("Enter the employeeID: ");
 
-        // validate
         String output = validator.ValidateInput(firstName, lastName, zipCode, employeeID);
         myApp.print(output);
     }

@@ -45,7 +45,6 @@ public class App {
         App myApp = new App();
         TableCreator table = new TableCreator();
 
-        // prompt age
         double pulse = myApp.userInput("Resting Pulse: ");
         double age = myApp.userInput("Age: ");
 

@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Savannah Osburn
+ */
+
 package oop.assignment2.ex31;
 
 import org.junit.jupiter.api.Test;
@@ -7,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class HeartRateCalculatorTest {
 
     @Test
-    void calculateRate_55() {
+    void calculateRate_55_age_22_pulse_65() {
         HeartRateCalculator calc = new HeartRateCalculator();
 
         // Accounts for rounding which occurs in create table
@@ -18,7 +23,7 @@ class HeartRateCalculatorTest {
     }
 
     @Test
-    void calculateRate_60() {
+    void calculateRate_60_age_22_pulse_65() {
         HeartRateCalculator calc = new HeartRateCalculator();
 
         // Accounts for rounding which occurs in create table
@@ -29,7 +34,7 @@ class HeartRateCalculatorTest {
     }
 
     @Test
-    void calculateRate_65() {
+    void calculateRate_65_age_22_pulse_65() {
         HeartRateCalculator calc = new HeartRateCalculator();
 
         // Accounts for rounding which occurs in create table
@@ -40,7 +45,7 @@ class HeartRateCalculatorTest {
     }
 
     @Test
-    void calculateRate_70() {
+    void calculateRate_70_age_22_pulse_65() {
         HeartRateCalculator calc = new HeartRateCalculator();
 
         // Accounts for rounding which occurs in create table
@@ -51,7 +56,7 @@ class HeartRateCalculatorTest {
     }
 
     @Test
-    void calculateRate_75() {
+    void calculateRate_75_age_22_pulse_65() {
         HeartRateCalculator calc = new HeartRateCalculator();
 
         // Accounts for rounding which occurs in create table
@@ -62,7 +67,7 @@ class HeartRateCalculatorTest {
     }
 
     @Test
-    void calculateRate_80() {
+    void calculateRate_80_age_22_pulse_65() {
         HeartRateCalculator calc = new HeartRateCalculator();
 
         // Accounts for rounding which occurs in create table
@@ -73,7 +78,7 @@ class HeartRateCalculatorTest {
     }
 
     @Test
-    void calculateRate_85() {
+    void calculateRate_85_age_22_pulse_65() {
         HeartRateCalculator calc = new HeartRateCalculator();
 
         // Accounts for rounding which occurs in create table
@@ -84,7 +89,7 @@ class HeartRateCalculatorTest {
     }
 
     @Test
-    void calculateRate_90() {
+    void calculateRate_90_age_22_pulse_65() {
         HeartRateCalculator calc = new HeartRateCalculator();
 
         // Accounts for rounding which occurs in create table
@@ -95,7 +100,7 @@ class HeartRateCalculatorTest {
     }
 
     @Test
-    void calculateRate_95() {
+    void calculateRate_95_age_22_pulse_65() {
         HeartRateCalculator calc = new HeartRateCalculator();
 
         // Accounts for rounding which occurs in create table
@@ -104,4 +109,27 @@ class HeartRateCalculatorTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void calculateRate_55_age_0_pulse_0() {
+        HeartRateCalculator calc = new HeartRateCalculator();
+
+        // Accounts for rounding which occurs in create table
+        double expected = 121;
+        double actual = Math.round(calc.calculateRate(0, 0, 55));
+
+        assertEquals(expected, actual, 0.0000000001);
+    }
+
+    @Test
+    void calculateRate_55_age_MINVAL_pulse_MINVAL() {
+        HeartRateCalculator calc = new HeartRateCalculator();
+
+        // Accounts for rounding which occurs in create table
+        double expected = 121;
+        double actual = Math.round(calc.calculateRate(Double.MIN_VALUE, Double.MIN_VALUE, 55));
+
+        assertEquals(expected, actual, 0.0000000001);
+    }
+
 }

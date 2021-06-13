@@ -12,23 +12,27 @@ public class TableCreator {
         HeartRateCalculator calc = new HeartRateCalculator();
         TableCreator tableCreator = new TableCreator();
 
-        String table =  ("Intensity    | Rate\n" + "-------------|--------\n");
+        String table =  ("""
+                Intensity    | Rate
+                -------------|--------
+                """);
 
         for (int i = 55; i <= 95; i += 5){
 
             int beatsPerMin = (int) Math.round((calc.calculateRate(restingPulse, age, i)));
+
             String bpm = Integer.toString(beatsPerMin);
             String percentage = tableCreator.getPercentage(i);
 
             table += String.format("%s          | %s bpm\n", percentage, bpm);
-            // table.append(percentage).append("\t\t\t |").append(" ").append(bpm).append(" bpm\n");
         }
 
-        return table.toString();
+        return table;
     }
 
     public String getPercentage(int percentage) {
         NumberFormat percentFormat = NumberFormat.getPercentInstance();
+
         return percentFormat.format((double) percentage / 100);
     }
 

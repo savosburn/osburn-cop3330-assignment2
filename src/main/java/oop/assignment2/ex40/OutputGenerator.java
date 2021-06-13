@@ -11,11 +11,17 @@ public class OutputGenerator {
         String heading = generator.tableHeading();
         String output = generator.employeesFiltered(employeeRecords);
 
-        return heading + output;
+        String print = heading + output;
+
+        if (output == null) {
+            print = "Nothing matches your search.";
+        }
+
+        return print;
     }
 
     public String tableHeading() {
-        String str1 = "Name\t\t\t\t| Position\t\t\t  |Separation Date\n";
+        String str1 = "Name\t\t\t\t| Position\t\t\t  | Separation Date\n";
         String str2 = "--------------------|---------------------|----------------\n";
 
         return str1 + str2;
@@ -32,8 +38,8 @@ public class OutputGenerator {
                         checkNull(employeeRecords, i, "lastNames")
                         + spaces(employeeRecords, i, "lastNames") + "| " +
                         checkNull(employeeRecords, i, "positions") +
-                        spaces(employeeRecords, i, "positions") + "| "
-                        + spaces(employeeRecords, i, "lastNames");
+                        spaces(employeeRecords, i, "positions") + "| " +
+                        checkNull(employeeRecords, i, "sepDates");
 
                 if (output == null) {
                     output = tempString + "\n";

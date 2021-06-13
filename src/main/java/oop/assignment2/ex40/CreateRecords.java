@@ -25,9 +25,45 @@ public class CreateRecords {
             empList.add(record.addMap(i, fNames, lNames, positions, sepDates));
         }
 
-        return empList;
+        return record.alphabetize(empList);
     }
 
+    public ArrayList<HashMap<String, String>> alphabetize(ArrayList<HashMap<String, String>> unsorted) {
+        String[] lastNames = new String[unsorted.size()];
+
+        for (int i = 0; i < 6; i++) {
+            lastNames[i] = unsorted.get(i).get("lastNames");
+        }
+
+        String key;
+        int j;
+        for (int i = 1; i < 6; i++) {
+            key = lastNames[i];
+            j = i - 1;
+
+            while (j >= 0 && lastNames[j].compareTo(key) > 0) {
+                lastNames[j + 1] = lastNames[j];
+                j = j-1;
+            }
+            lastNames[j + 1] = key;
+        }
+
+        return sorter(unsorted, lastNames);
+    }
+
+    public ArrayList<HashMap<String, String>> sorter(ArrayList<HashMap<String, String>> unsorted, String[] alphabetized) {
+        ArrayList<HashMap<String, String>> sort = new ArrayList<>();
+
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (unsorted.get(j).get("lastNames").equals(alphabetized[i])) {
+                    sort.add(unsorted.get(j));
+                }
+            }
+        }
+
+        return sort;
+    }
 
     public HashMap<String, String> addMap(int k, String[] fNames, String[] lNames, String[] positions, String[]
             sepDates) {

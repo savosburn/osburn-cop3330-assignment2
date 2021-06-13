@@ -5,54 +5,31 @@
 
 package oop.assignment2.ex40;
 
-/*
-Sorting records is helpful, but sometimes you need to filter down the
-results to find or display only what you’re looking for.
-
-Given the following data set create a program that lets a user locate all records that
-match the search string by comparing the search string to the first or last name field.
-
-First Name	    Last Name   	Position	                 Separation Date
-John	        Johnson     	Manager     	            2016-12-31
-Tou	            Xiong	        Software Engineer	        2016-10-05
-Michaela	    Michaelson	        District Manager	    2015-12-19
-Jake	        Jacobson	        Programmer
-Jacquelyn	    Jackson     	DBA
-Sally	        Webber	        Web Developer	    2015-12-18
-
-
-Example Output
-Enter a search string: Jac
-
-Results:
-
-Name                | Position          | Separation Date
---------------------|-------------------|----------------
-Jacquelyn Jackson   | DBA               |
-Jake Jacobson       | Programmer        |
-Constraint
-Store the data using a list of maps.
- */
-
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class App {
+    private static final Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
         App myApp = new App();
-        CreateRecords records = new CreateRecords();
-        RecordSearcher search  =new RecordSearcher();
+        CreateRecords records  = new CreateRecords();
+        RecordSearcher search  = new RecordSearcher();
         OutputGenerator generator = new OutputGenerator();
 
-        ArrayList<HashMap<String, String>> employees;
-
-        employees = records.employeeRecords();
-
-        ArrayList<HashMap<String, String>> filtered;
-        filtered = search.searchRecords(employees);
+        ArrayList<HashMap<String, String>> employees = records.employeeRecords();
+        String userSearch = myApp.userSearch();
+        ArrayList<HashMap<String, String>> filtered = search.searchRecords(employees, userSearch);
 
         String output = generator.generateOutput(filtered);
         myApp.output(output);
+    }
+
+    public String userSearch() {
+        System.out.print("Enter a search string: ");
+
+        return in.nextLine();
     }
 
     public void output(String output) {

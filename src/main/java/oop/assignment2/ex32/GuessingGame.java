@@ -23,8 +23,10 @@ public class GuessingGame {
     }
 
     public int difficulty() {
+        int userInput;
+
         System.out.print("Enter the difficulty level (1, 2, or 3): ");
-        int userInput = 0;
+
         while(true) {
             try {
                 userInput = Integer.parseInt(in.next());
@@ -37,11 +39,13 @@ public class GuessingGame {
                 System.out.println("Sorry. That's not a valid input. ");
             }
         }
+
         return userInput;
     }
 
     public int randomNum(int difficulty) {
         int randomVal = 0;
+
         switch (difficulty) {
             case 1 -> randomVal = 1 + randomNumbers.nextInt(10);
             case 2 -> randomVal = 1 + randomNumbers.nextInt(100);
@@ -53,13 +57,14 @@ public class GuessingGame {
 
     public int userGuesses(int rand) {
         int numGuesses = 0;
-        int userInput = 0;
+        int userInput;
 
         System.out.print("I have my number. What's your guess? ");
 
         while(true) {
             try {
                 userInput = Integer.parseInt(in.next());
+
                 if (userInput < rand) {
                     System.out.print("Too low. Guess again: ");
                     numGuesses++;
@@ -77,6 +82,7 @@ public class GuessingGame {
                 numGuesses++;
             }
         }
+
         return numGuesses;
     }
 
@@ -86,10 +92,12 @@ public class GuessingGame {
 
     public String playAgain() {
         System.out.print("Do you wish to play again (Y/N)? ");
+
         String userInput;
         while(true) {
             try {
                 userInput = in.next().toLowerCase();
+
                 if (!userInput.equals("y") && !userInput.equals("n")) {
                     System.out.print("Sorry. That's not a valid input. Try again: ");
                 }
@@ -100,6 +108,7 @@ public class GuessingGame {
                 System.out.println("Sorry. That's not a valid input. Try again: ");
             }
         }
+
         return userInput;
     }
 }

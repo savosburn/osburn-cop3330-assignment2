@@ -14,38 +14,34 @@ public class PasswordRandomnizer {
     public StringBuilder randomnize(int numNums, int specialChars, int minLength) {
         PasswordGenerator generatePassword = new PasswordGenerator();
 
-        ArrayList<Integer> password = new ArrayList<>();
+        ArrayList<Integer> password;
         password = generatePassword.randPassword(numNums, specialChars, minLength);
-        StringBuilder retString = new StringBuilder();
-        retString.append("Your password is ");
-        int loop = password.size();
 
+        StringBuilder retString = new StringBuilder();
+
+        retString.append("Your password is ");
+
+        int loop = password.size();
         while (loop != 0) {
 
-            // Choose random number
             int randVal = randomNumbers.nextInt(password.size());
-            String val = "";
+
+            String val;
 
             if (password.get(randVal) >= 0 && password.get(randVal) <= 9) {
                 val = String.valueOf(password.get(randVal));
-
             }
+
             else {
                 val = Character.toString(password.get(randVal));
             }
-            // Convert to string
 
+            retString.append(val);
 
-
-                retString.append(val);
-
-                // else make add to the string
-
-            // remove from the arraylist
             password.remove(randVal);
             loop--;
-
         }
+
         return retString;
     }
 }

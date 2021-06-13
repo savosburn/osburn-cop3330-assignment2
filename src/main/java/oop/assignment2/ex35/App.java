@@ -32,15 +32,16 @@ import java.util.ArrayList;
 
 public class App {
 
-
     public static void main(String[] args) {
         App myApp = new App();
         Contest contest = new Contest();
-        ArrayList<String> contestants = new ArrayList<String>();
+
+        ArrayList<String> contestants = new ArrayList<>();
 
         ArrayList<String> addedContestants = contest.addContestants(contestants);
 
         int winner = contest.chooseWinner(addedContestants.size());
+
         String output = contest.winner(addedContestants, winner);
         myApp.print(output);
     }
@@ -48,6 +49,4 @@ public class App {
     public void print(String output) {
         System.out.println(output);
     }
-
-
 }

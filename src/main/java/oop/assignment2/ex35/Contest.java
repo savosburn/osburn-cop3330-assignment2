@@ -15,11 +15,14 @@ public class Contest {
 
     public ArrayList<String> addContestants(ArrayList<String> contestants) {
 
-        String input = null;
+        String input;
+
         while (true) {
             System.out.print("Enter a name: ");
+
             try {
                 input = in.nextLine();
+
                 if (input.isEmpty()) {
                     break;
                 }
@@ -29,6 +32,7 @@ public class Contest {
                 System.out.println("Sorry. That's not a valid input. ");
             }
         }
+
         return contestants;
     }
 

@@ -17,7 +17,7 @@ John	        Johnson     	Manager     	            2016-12-31
 Tou	            Xiong	        Software Engineer	        2016-10-05
 Michaela	    Michaelson	        District Manager	    2015-12-19
 Jake	        Jacobson	        Programmer
-Jacquelyn	        Jackson     	DBA
+Jacquelyn	    Jackson     	DBA
 Sally	        Webber	        Web Developer	    2015-12-18
 
 
@@ -34,9 +34,30 @@ Constraint
 Store the data using a list of maps.
  */
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class App {
     public static void main(String[] args) {
 
         App myApp = new App();
+        CreateRecords records = new CreateRecords();
+        RecordSearcher search  =new RecordSearcher();
+        OutputGenerator generator = new OutputGenerator();
+
+        ArrayList<HashMap<String, String>> employees = new ArrayList<>();
+
+        employees = records.employeeRecords();
+
+        ArrayList<HashMap<String, String>> filtered = new ArrayList<>();
+        filtered = search.searchRecords(employees);
+
+        String output = generator.generateOutput(filtered);
+        myApp.output(output);
+
+    }
+
+    public void output(String output) {
+        System.out.println(output);
     }
 }

@@ -5,23 +5,30 @@
 
 package oop.assignment2.ex34;
 
+import java.util.ArrayList;
+
 public class EmployeeList {
-    public String[] empList() {
-        return new String[]{"John Smith", "Jackie Jackson", "Chris Jones", "Amanda Cullen",
-                "Jeremy Goodwin"};
+
+    public ArrayList<String> employeeList() {
+        ArrayList<String> empList = new ArrayList<>();
+
+        empList.add("John Smith");
+        empList.add("Jackie Jackson");
+        empList.add("Chris Jones");
+        empList.add("Amanda Cullen");
+        empList.add("Jeremy Goodwin");
+
+        return empList;
     }
 
-    public String[] modifyList(String[] list, String name){
-        String[] modifiedList = new String[list.length - 1];
-        for (int i = 0, j = 0; i < list.length; i++) {
-            if (!list[i].toLowerCase().equals(name)) {
-                modifiedList[j++] = list[i];
+    public ArrayList<String> removeEmployee(String employee, ArrayList<String> employees) {
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).toLowerCase().equals(employee)) {
+                employees.remove(i);
+                break;
             }
         }
 
-        return modifiedList;
-
+        return employees;
     }
-
-
 }

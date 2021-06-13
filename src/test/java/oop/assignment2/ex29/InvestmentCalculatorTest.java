@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class InvestmentCalculatorTest {
-    // Program never reaches 0 or a letter, so no need to test
 
+    // Program never reaches 0 or a letter, so no need to test
     @Test
     void calculation_decimal() {
         InvestmentCalculator calc = new InvestmentCalculator();

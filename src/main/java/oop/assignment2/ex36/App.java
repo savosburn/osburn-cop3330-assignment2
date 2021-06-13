@@ -46,28 +46,31 @@ public class App {
     public static void main(String[] args) {
         App myApp = new App();
         StatisticsData sd = new StatisticsData();
-        ArrayList<Double> responseTimes = new ArrayList<Double>();
 
-         responseTimes = myApp.readInput(responseTimes);
+        ArrayList<Double> responseTimes = new ArrayList<>();
 
-        myApp.printResponseTimes(responseTimes);
+        responseTimes = myApp.readInput(responseTimes);
+
+        String times = myApp.printResponseTimes(responseTimes);
 
         String output = sd.generateOutput(responseTimes);
-        myApp.output(output);
+        myApp.output(times, output);
     }
 
     public ArrayList<Double> readInput(ArrayList<Double> items) {
-        String input = null;
+        String input;
 
         while (true) {
             System.out.print("Enter a number: ");
+
             try {
                 input = (in.next().toLowerCase());
+
                 if (input.equals("done")) {
                     break;
                 }
-                items.add(Double.parseDouble(input));
 
+                items.add(Double.parseDouble(input));
             } catch (NumberFormatException e) {
                 System.out.println("Sorry. That's not a valid input. ");
             }
@@ -76,22 +79,22 @@ public class App {
         return items;
     }
 
-    public void printResponseTimes(ArrayList<Double> times){
-        System.out.print("\nNumbers: ");
+    public String printResponseTimes(ArrayList<Double> times){
+        String output = "\nNumbers: ";
 
         for (int i = 0; i < times.size(); i++) {
-
             if (i == times.size() - 1){
-                System.out.printf("%.0f\n", times.get(i));
+                output += String.format("%.0f\n", times.get(i));
                 break;
             }
 
-            System.out.printf("%.0f, ", times.get(i));
-
+            output += String.format("%.0f, ", times.get(i));
         }
+
+        return output;
     }
 
-    public void output(String output) {
-        System.out.print(output);
+    public void output(String times, String output) {
+        System.out.print(times + output);
     }
 }

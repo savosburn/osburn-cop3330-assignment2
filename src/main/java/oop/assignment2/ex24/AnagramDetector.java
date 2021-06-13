@@ -29,7 +29,6 @@ public class AnagramDetector {
             Arrays.sort(strTwo);
 
             return Arrays.equals(strOne, strTwo);
-
         }
 
         return false;

@@ -99,5 +99,4 @@ class AnagramDetectorTest {
 
         assertFalse(actual);
     }
-
 }

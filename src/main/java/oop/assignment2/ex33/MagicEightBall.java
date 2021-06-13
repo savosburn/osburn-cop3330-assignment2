@@ -21,16 +21,12 @@ public class MagicEightBall {
     }
 
     public String randomAnswers(int choice) {
-        switch (choice) {
-            case 1:
-                return "Yes";
-            case 2:
-                return "No";
-            case 3:
-                return "Maybe";
-            case 4:
-                return "Ask again later.";
-        }
-        return null;
+        return switch (choice) {
+            case 1 -> "Yes";
+            case 2 -> "No";
+            case 3 -> "Maybe";
+            case 4 -> "Ask again later.";
+            default -> null;
+        };
     }
 }
